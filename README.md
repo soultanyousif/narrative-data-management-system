@@ -1,7 +1,7 @@
 # Narrative Platform customer and sales data system
 
 A prototype for centralising customer, order and inventory data for Narrative Platform.
-Built on synthetic data and the public product catalog. No private MONOUN data is used.
+Built on synthetic data and the public product catalog.
 
 Status: Week 1 of 4 complete (database, catalog, synthetic data, integrity checks).
 
