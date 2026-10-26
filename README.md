@@ -38,7 +38,6 @@ shopify_csv) so synthetic and real data can never be confused.
 ## Moving from synthetic to real data
 1. Dry run on a small export or anonymised sample.
 2. Parallel run: compare totals with Shopify's own reports.
-3. Go live under MONOUN's permissions.
 
 ## Assumptions made without MONOUN input (to confirm)
 - Revenue is tax-inclusive, excludes shipping, and excludes cancelled and refunded orders.
