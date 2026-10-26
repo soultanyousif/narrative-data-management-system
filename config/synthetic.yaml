@@ -15,6 +15,7 @@ customers:
     5: 0.01
 
 offline:
+  customer_jp_share: 0.85
   orders: 1400
   anonymous_share: 0.45
   existing_online_customer_share: 0.25
