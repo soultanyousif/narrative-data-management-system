@@ -1,0 +1,103 @@
+seed: 42
+
+period:
+  start: 2025-10-27
+  end: 2026-10-25
+
+customers:
+  online_customers: 2200
+  offline_only_customers: 500
+  orders_per_customer:
+    1: 0.68
+    2: 0.20
+    3: 0.08
+    4: 0.03
+    5: 0.01
+
+offline:
+  orders: 1400
+  anonymous_share: 0.45
+  existing_online_customer_share: 0.25
+
+online_countries:
+  JP: 0.38
+  US: 0.22
+  GB: 0.08
+  DE: 0.07
+  FR: 0.06
+  IT: 0.04
+  ES: 0.03
+  NL: 0.03
+  SE: 0.02
+  CH: 0.02
+  DK: 0.02
+  PL: 0.01
+  AT: 0.01
+  BE: 0.01
+
+country_currency:
+  JP: JPY
+  US: USD
+  GB: GBP
+  DE: EUR
+  FR: EUR
+  IT: EUR
+  ES: EUR
+  NL: EUR
+  AT: EUR
+  BE: EUR
+  SE: SEK
+  CH: CHF
+  DK: DKK
+  PL: PLN
+
+# Illustrative rates only, not live market data
+fx_to_jpy:
+  JPY: 1.0
+  USD: 150.0
+  EUR: 165.0
+  GBP: 195.0
+  SEK: 14.0
+  CHF: 170.0
+  DKK: 22.0
+  PLN: 38.0
+fx_monthly_drift: 0.02
+
+monthly_multiplier:
+  1: 0.90
+  2: 0.85
+  3: 1.20
+  4: 0.95
+  5: 1.15
+  6: 0.85
+  7: 0.90
+  8: 0.85
+  9: 0.95
+  10: 1.00
+  11: 1.25
+  12: 1.45
+
+basket:
+  items_per_order:
+    1: 0.60
+    2: 0.25
+    3: 0.10
+    4: 0.05
+  quantity_two_share: 0.10
+  popularity_sigma: 1.2
+  price_penalty_exponent: 0.3
+
+status:
+  fulfilled: 0.95
+  cancelled: 0.03
+  refunded: 0.02
+  paid_window_days: 7
+
+inventory:
+  restock_when_at_or_below: 2
+  restock_probability: 0.5
+  start_stock_by_price:
+    - {max_price: 5000, low: 15, high: 60}
+    - {max_price: 20000, low: 5, high: 25}
+    - {max_price: 100000, low: 2, high: 8}
+    - {max_price: 100000000, low: 1, high: 3}
