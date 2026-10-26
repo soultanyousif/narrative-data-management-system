@@ -1,7 +1,10 @@
 ﻿annotated-types==0.8.0
+certifi==2026.10.23
+charset-normalizer==3.5.2
 colorama==0.4.6
 et_xmlfile==2.0.0
 Faker==40.43.0
+idna==3.20
 iniconfig==2.3.1
 mypy_extensions==1.1.0
 numpy==2.5.4
@@ -19,6 +22,7 @@ pytest==9.1.1
 python-dateutil==3.0.0
 python-dotenv==1.2.4
 PyYAML==6.0.3
+requests==2.34.2
 six==1.17.0
 SQLAlchemy==2.1.6
 typeguard==4.6.0
@@ -26,3 +30,4 @@ typing-inspect==0.9.0
 typing-inspection==0.4.4
 typing_extensions==4.16.0
 tzdata==2026.5
+urllib3==2.8.0
