@@ -19,7 +19,8 @@ CATEGORY_BY_DIGIT = {
 DEFAULT_CATEGORY = "Lifestyle Goods & Miscellaneous"
 CATEGORY_PATTERN = re.compile(r"^(\d)(?:\.\d+)? - ")
 MAKER_PREFIX = "メーカー - "
-
+OTHER_PREFIXES = ("産地", "技法", "素材", "kickstarter")
+SKIP_TITLES = {"all", "全エリア", "大分", "映像で紐解くモノ創り", "HINOMIYA-TOP"}
 
 def handles_in_collection(collection_handle):
     handles = []
@@ -41,13 +42,23 @@ def handles_in_collection(collection_handle):
     return handles
 
 
+def is_artist_or_brand(title):
+    if CATEGORY_PATTERN.match(title) or title.startswith(MAKER_PREFIX):
+        return False
+    if title in SKIP_TITLES or "エリア" in title:
+        return False
+    return not title.startswith(OTHER_PREFIXES)
+
+
 def read_memberships(collections):
     digits_by_product = {}
     makers_by_product = {}
+    artists_by_product = {}
     for row in collections.itertuples():
         category_match = CATEGORY_PATTERN.match(row.title)
         is_maker = row.title.startswith(MAKER_PREFIX)
-        if not category_match and not is_maker:
+        is_artist = is_artist_or_brand(row.title)
+        if not (category_match or is_maker or is_artist):
             continue
         print("reading collection:", row.title)
         for handle in handles_in_collection(row.handle):
@@ -56,7 +67,9 @@ def read_memberships(collections):
             if is_maker:
                 maker_name = row.title[len(MAKER_PREFIX):].strip()
                 makers_by_product.setdefault(handle, []).append(maker_name)
-    return digits_by_product, makers_by_product
+            if is_artist:
+                artists_by_product.setdefault(handle, []).append(row.title.strip())
+    return digits_by_product, makers_by_product, artists_by_product
 
 
 def main():
@@ -64,7 +77,7 @@ def main():
     collections = pd.read_csv("data/raw/collections_raw.csv")
     collections = collections[collections["products_count"] > 0]
 
-    digits_by_product, makers_by_product = read_memberships(collections)
+    digits_by_product, makers_by_product, artists_by_product = read_memberships(collections)
 
     rows = []
     category_conflicts = 0
@@ -74,6 +87,7 @@ def main():
     for index, product in enumerate(sorted_products.itertuples(), start=1):
         digits = digits_by_product.get(product.handle, set())
         makers = makers_by_product.get(product.handle, [])
+        artists = artists_by_product.get(product.handle, [])
 
         if digits:
             category = CATEGORY_BY_DIGIT[min(digits)]
@@ -88,6 +102,11 @@ def main():
             maker = makers[0]
             maker_source = "collection"
             if len(set(makers)) > 1:
+                maker_conflicts += 1
+        elif artists:
+            maker = artists[0]
+            maker_source = "artist_or_brand"
+            if len(set(artists)) > 1:
                 maker_conflicts += 1
         elif product.vendor != "Narrative Platform":
             maker = product.vendor
