@@ -422,6 +422,9 @@ def main():
 
     mapping = load_mapping()
     engine = get_engine()
+    for path in (args.customers, args.orders):
+        if path and "fixtures" in str(path).lower() and not engine.url.database.endswith("_test"):
+            parser.error(f"{path} is a test fixture and may only be loaded into a *_test database")
     print("database:", engine.url.database)
     if args.customers:
         load_customers(engine, mapping, args.customers)
