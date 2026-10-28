@@ -1,0 +1,318 @@
+# Shopify export columns (names only, no data)
+
+## Orders export (264 columns)
+
+- ID
+- Name
+- Command
+- Send Receipt
+- Inventory Behaviour
+- Number
+- Phone
+- Email
+- Note
+- Tags
+- Tags Command
+- Created At
+- Updated At
+- Cancelled At
+- Cancel: Reason
+- Cancel: Send Receipt
+- Cancel: Refund
+- Cancel: Restock
+- Cancel: Note
+- Processed At
+- Closed At
+- Currency
+- Shop Currency
+- Source
+- Source Identifier
+- Source URL
+- Physical Location
+- User ID
+- Checkout ID
+- Cart Token
+- Token
+- Order Status URL
+- Weight Total
+- Price: Total Line Items
+- Price: Total Line Items (Shop Currency)
+- Price: Current Subtotal
+- Price: Current Subtotal (Shop Currency)
+- Price: Subtotal
+- Price: Subtotal (Shop Currency)
+- Tax 1: Title
+- Tax 1: Rate
+- Tax 1: Price
+- Tax 1: Price (Shop Currency)
+- Tax 1: Channel Liable
+- Tax 2: Title
+- Tax 2: Rate
+- Tax 2: Price
+- Tax 2: Price (Shop Currency)
+- Tax 2: Channel Liable
+- Tax 3: Title
+- Tax 3: Rate
+- Tax 3: Price
+- Tax 3: Price (Shop Currency)
+- Tax 3: Channel Liable
+- Tax: Included
+- Tax: Total
+- Tax: Total (Shop Currency)
+- Price: Total Discount
+- Price: Total Discount (Shop Currency)
+- Price: Current Total Shipping
+- Price: Current Total Shipping (Shop Currency)
+- Price: Total Shipping
+- Price: Total Shipping (Shop Currency)
+- Price: Current Total Duties
+- Price: Current Total Duties (Shop Currency)
+- Price: Total Duties
+- Price: Total Duties (Shop Currency)
+- Price: Current Total Fees
+- Price: Current Total Fees (Shop Currency)
+- Price: Total Fees
+- Price: Total Fees (Shop Currency)
+- Price: Total Refund
+- Price: Total Refund (Shop Currency)
+- Price: Total Outstanding
+- Price: Total Outstanding (Shop Currency)
+- Price: Current Total
+- Price: Current Total (Shop Currency)
+- Price: Total
+- Price: Total (Shop Currency)
+- Payment: Status
+- Order Fulfillment Status
+- Additional Details
+- Purchase Order Number
+- Customer: ID
+- Customer: Email
+- Customer: Phone
+- Customer: First Name
+- Customer: Last Name
+- Customer: Note
+- Customer: State
+- Customer: Tags
+- Customer: Email Marketing Status
+- Customer: SMS Marketing Status
+- Customer: Tax Exempt
+- Customer: Orders Count
+- Customer: Total Spent
+- Billing: First Name
+- Billing: Last Name
+- Billing: Name
+- Billing: Company
+- Billing: Phone
+- Billing: Address 1
+- Billing: Address 2
+- Billing: Zip
+- Billing: City
+- Billing: Province
+- Billing: Province Code
+- Billing: Country
+- Billing: Country Code
+- Shipping: First Name
+- Shipping: Last Name
+- Shipping: Name
+- Shipping: Company
+- Shipping: Phone
+- Shipping: Address 1
+- Shipping: Address 2
+- Shipping: Zip
+- Shipping: City
+- Shipping: Province
+- Shipping: Province Code
+- Shipping: Country
+- Shipping: Country Code
+- Browser: IP
+- Browser: Width
+- Browser: Height
+- Browser: User Agent
+- Browser: Landing Page
+- Browser: Referrer
+- Browser: Referrer Domain
+- Browser: Search Keywords
+- Browser: Ad URL
+- Browser: UTM Source
+- Browser: UTM Medium
+- Browser: UTM Campaign
+- Browser: UTM Term
+- Browser: UTM Content
+- Company: ID
+- Company: Name
+- Company: External ID
+- Company: Location ID
+- Company: Location Name
+- Company: Location External ID
+- Row #
+- Top Row
+- Line: Type
+- Line: ID
+- Line: Command
+- Line: Product ID
+- Line: Product Handle
+- Line: Title
+- Line: Name
+- Line: Variant ID
+- Line: Variant Title
+- Line: SKU
+- Line: Quantity
+- Line: Current Quantity
+- Line: Refundable Quantity
+- Line: Price
+- Line: Price (Shop Currency)
+- Line: Discount
+- Line: Discount (Shop Currency)
+- Line: Discount Allocation
+- Line: Discount Allocation (Shop Currency)
+- Line: Discount per Item
+- Line: Discount per Item (Shop Currency)
+- Line: Total
+- Line: Total (Shop Currency)
+- Line: Grams
+- Line: Requires Shipping
+- Line: Vendor
+- Line: Properties
+- Line: Gift Card
+- Line: Force Gift Card
+- Line: Taxable
+- Line: Tax Total
+- Line: Tax Total (Shop Currency)
+- Line: Tax 1 Title
+- Line: Tax 1 Rate
+- Line: Tax 1 Price
+- Line: Tax 1 Price (Shop Currency)
+- Line: Tax 1 Channel Liable
+- Line: Tax 2 Title
+- Line: Tax 2 Rate
+- Line: Tax 2 Price
+- Line: Tax 2 Price (Shop Currency)
+- Line: Tax 2 Channel Liable
+- Line: Tax 3 Title
+- Line: Tax 3 Rate
+- Line: Tax 3 Price
+- Line: Tax 3 Price (Shop Currency)
+- Line: Tax 3 Channel Liable
+- Line: Fulfillable Quantity
+- Line: Fulfillment Service
+- Line: Fulfillment Status
+- Line: Pre Tax Price
+- Line: Pre Tax Price (Shop Currency)
+- Line: Product Type
+- Line: Product Tags
+- Line: Variant SKU
+- Line: Variant Barcode
+- Line: Variant Weight
+- Line: Variant Weight Unit
+- Line: Variant Inventory Qty
+- Line: Variant Cost
+- Line: Variant Price
+- Line: Variant Compare At Price
+- Line: Variant Country of Origin
+- Line: Variant Province of Origin
+- Line: Variant HS Code
+- Refund: ID
+- Refund: Created At
+- Refund: Note
+- Refund: Restock
+- Refund: Restock Type
+- Refund: Restock Location
+- Refund: Send Receipt
+- Refund: Generate Transaction
+- Transaction: ID
+- Transaction: Kind
+- Transaction: Processed At
+- Transaction: Created At
+- Transaction: Amount
+- Transaction: Currency
+- Transaction: Amount (Shop Currency)
+- Transaction: Shop Currency
+- Transaction: Status
+- Transaction: Message
+- Transaction: Gateway
+- Transaction: Force Gateway
+- Transaction: Payment Method
+- Transaction: Wallet
+- Transaction: Test
+- Transaction: Authorization
+- Transaction: Payment ID
+- Transaction: Device ID
+- Transaction: User ID
+- Transaction: Parent ID
+- Transaction: Error Code
+- Transaction: CC AVS Result
+- Transaction: CC Bin
+- Transaction: CC CVV Result
+- Transaction: CC Number
+- Transaction: CC Company
+- Risk: Source
+- Risk: Level
+- Risk: Recommendation
+- Risk: Message
+- Fulfillment: ID
+- Fulfillment: Status
+- Fulfillment: Created At
+- Fulfillment: Updated At
+- Fulfillment: Processed At
+- Fulfillment: Tracking Company
+- Fulfillment: Location
+- Fulfillment: Shipment Status
+- Fulfillment: Tracking Number
+- Fulfillment: Tracking URL
+- Fulfillment: Send Receipt
+- Metafield: AnyGift.RecipientEmail [single_line_text_field]
+- Metafield: AnyGift.RecipientAddress [multi_line_text_field]
+- Metafield: AnyGift.RecipientName [single_line_text_field]
+- Metafield: sns_gift.shipping_address_email [single_line_text_field]
+- Metafield: sns_gift.delivery_time [single_line_text_field]
+- Metafield: sns_gift.delivery_date [date]
+
+## Customers export (47 columns)
+
+- ID
+- Email
+- Command
+- First Name
+- Last Name
+- Phone
+- Language
+- State
+- Email Marketing: Status
+- Email Marketing: Level
+- Email Marketing: Updated At
+- SMS Marketing: Status
+- SMS Marketing: Level
+- SMS Marketing: Updated At
+- SMS Marketing: Source
+- WhatsApp Marketing: Status
+- WhatsApp Marketing: Level
+- WhatsApp Marketing: Updated At
+- Created At
+- Updated At
+- Note
+- Verified Email
+- Tax ID
+- Tax Exempt
+- Tags
+- Tags Command
+- Total Spent
+- Total Orders
+- Send Account Activation Email
+- Multipass Identifier
+- Row #
+- Top Row
+- Address ID
+- Address Command
+- Address First Name
+- Address Last Name
+- Address Phone
+- Address Company
+- Address Line 1
+- Address Line 2
+- Address City
+- Address Province
+- Address Province Code
+- Address Country
+- Address Country Code
+- Address Zip
+- Address Is Default
