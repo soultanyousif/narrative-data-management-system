@@ -9,7 +9,7 @@
 - A full refund sets the order status to refunded. A partial refund keeps the status and is subtracted from revenue.
 
 ## Metrics
-- R- Revenue: for counted orders (paid and fulfilled), amount_jpy minus refund_jpy, in JPY. amount_jpy is the items total after discounts, tax included, shipping excluded.
+- Revenue: for counted orders (paid and fulfilled), amount_jpy minus the refunded amount (never more than amount_jpy), in JPY. amount_jpy is the items total after discounts, tax included, shipping excluded.
 - Orders: number of counted orders.
 - Customers: number of distinct customers with at least one counted order in the period.
 - Average order value (AOV): revenue divided by orders.

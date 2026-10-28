@@ -14,17 +14,23 @@ MAPPING_PATH = Path("config/shopify_mapping.yaml")
 UNKNOWN_COUNTRY = "ZZ"
 EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
-UPSERT_CUSTOMER = text(
+UPDATE_CUSTOMER = text(
+    """
+    UPDATE core.customers
+    SET email = :email, language = :language, country_code = :country_code
+    WHERE shopify_customer_id = :shopify_customer_id
+    """
+)
+
+INSERT_CUSTOMER = text(
     """
     INSERT INTO core.customers
         (shopify_customer_id, email, language, country_code, created_at, data_source)
     VALUES
         (:shopify_customer_id, :email, :language, :country_code, :created_at, 'shopify_csv')
-    ON CONFLICT (shopify_customer_id) WHERE shopify_customer_id IS NOT NULL
-    DO UPDATE SET
-        email = EXCLUDED.email,
-        language = EXCLUDED.language,
-        country_code = EXCLUDED.country_code
+    ON CONFLICT (email) DO UPDATE SET
+        shopify_customer_id = COALESCE(core.customers.shopify_customer_id, EXCLUDED.shopify_customer_id),
+        language = EXCLUDED.language
     """
 )
 
@@ -302,17 +308,18 @@ def build_orders(df, mapping, product_ids, customer_ids):
     return good, rejected
 
 
-def start_batch(engine, file_name, source_name):
+def start_batch(engine, file_name, source_name, data_source="shopify_csv"):
     sql = text(
         """
         INSERT INTO staging.etl_batches (source_name, file_name, data_source)
-        VALUES (:source_name, :file_name, 'shopify_csv')
+        VALUES (:source_name, :file_name, :data_source)
         RETURNING batch_id
         """
     )
     with engine.begin() as connection:
         return connection.execute(
-            sql, {"source_name": source_name, "file_name": file_name}
+            sql,
+            {"source_name": source_name, "file_name": file_name, "data_source": data_source},
         ).scalar()
 
 
@@ -367,8 +374,10 @@ def load_customers(engine, mapping, path):
     try:
         good, rejected = build_customers(df)
         with engine.begin() as connection:
-            if good:
-                connection.execute(UPSERT_CUSTOMER, good)
+            for customer in good:
+                updated = connection.execute(UPDATE_CUSTOMER, customer).rowcount
+                if updated == 0:
+                    connection.execute(INSERT_CUSTOMER, customer)
             save_rejected(connection, batch_id, rejected)
         finish_batch(engine, batch_id, "succeeded", records_read, len(good), len(rejected))
     except Exception:

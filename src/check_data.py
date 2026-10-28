@@ -14,10 +14,12 @@ CHECKS = [
         SEED_PRODUCTS,
     ),
     (
-        "products without any stock record",
-        """SELECT COUNT(*) FROM core.products p
-           WHERE NOT EXISTS (SELECT 1 FROM core.inventory_snapshots s
-                             WHERE s.product_id = p.product_id)""",
+        "products without any stock record (when stock data exists)",
+        """SELECT CASE WHEN EXISTS (SELECT 1 FROM core.inventory_snapshots)
+           THEN (SELECT COUNT(*) FROM core.products p
+                 WHERE NOT EXISTS (SELECT 1 FROM core.inventory_snapshots s
+                                   WHERE s.product_id = p.product_id))
+           ELSE 0 END""",
         0,
     ),
     (
@@ -28,11 +30,11 @@ CHECKS = [
         0,
     ),
     (
-        "orders whose total differs from the sum of their lines",
+        "orders whose total differs from item lines minus discount",
         """SELECT COUNT(*) FROM core.orders o
            JOIN (SELECT order_id, SUM(line_total_jpy) AS lines_total
                  FROM core.order_items GROUP BY order_id) t USING (order_id)
-           WHERE o.amount_jpy <> t.lines_total""",
+           WHERE o.amount_jpy <> t.lines_total - o.discount_jpy""",
         0,
     ),
     (
@@ -42,8 +44,16 @@ CHECKS = [
         0,
     ),
     (
-        "online orders without a customer",
-        "SELECT COUNT(*) FROM core.orders WHERE channel = 'online' AND customer_id IS NULL",
+        "refunds larger than the order including shipping",
+        "SELECT COUNT(*) FROM core.orders WHERE refund_jpy > amount_jpy + shipping_jpy",
+        0,
+    ),
+    (
+        "Shopify order IDs that appear more than once",
+        """SELECT COUNT(*) FROM (
+               SELECT shopify_order_id FROM core.orders
+               WHERE shopify_order_id IS NOT NULL
+               GROUP BY shopify_order_id HAVING COUNT(*) > 1) d""",
         0,
     ),
     (
@@ -53,24 +63,36 @@ CHECKS = [
         0,
     ),
     (
-        "customers with no orders",
-        """SELECT COUNT(*) FROM core.customers c
-           WHERE NOT EXISTS (SELECT 1 FROM core.orders o
-                             WHERE o.customer_id = c.customer_id)""",
+        "load batches that failed",
+        "SELECT COUNT(*) FROM staging.etl_batches WHERE status = 'failed'",
         0,
     ),
     (
-        "orders dated outside the 12-month period",
+        "online orders without a customer (synthetic only)",
         """SELECT COUNT(*) FROM core.orders
-           WHERE ordered_at < '2025-10-27 00:00:00+00'
-              OR ordered_at >= '2026-10-26 00:00:00+00'""",
+           WHERE data_source = 'synthetic' AND channel = 'online' AND customer_id IS NULL""",
         0,
     ),
     (
-        "order lines priced differently from the catalog (synthetic data only)",
+        "customers with no orders (synthetic only)",
+        """SELECT COUNT(*) FROM core.customers c
+           WHERE c.data_source = 'synthetic'
+             AND NOT EXISTS (SELECT 1 FROM core.orders o WHERE o.customer_id = c.customer_id)""",
+        0,
+    ),
+    (
+        "orders dated outside the 12-month period (synthetic only)",
+        """SELECT COUNT(*) FROM core.orders
+           WHERE data_source = 'synthetic'
+             AND (ordered_at < '2025-10-27 00:00:00+00' OR ordered_at >= '2026-10-26 00:00:00+00')""",
+        0,
+    ),
+    (
+        "order lines priced differently from the catalog (synthetic only)",
         """SELECT COUNT(*) FROM core.order_items i
+           JOIN core.orders o USING (order_id)
            JOIN core.products p USING (product_id)
-           WHERE i.unit_price_jpy <> p.price_jpy""",
+           WHERE o.data_source = 'synthetic' AND i.unit_price_jpy <> p.price_jpy""",
         0,
     ),
 ]
@@ -79,8 +101,8 @@ INFO = [
     ("orders", "SELECT COUNT(*) FROM core.orders"),
     ("customers", "SELECT COUNT(*) FROM core.customers"),
     (
-        "revenue counted (paid and fulfilled), JPY",
-        """SELECT SUM(amount_jpy) FROM core.orders
+        "revenue counted (paid and fulfilled, net of refunds), JPY",
+        """SELECT SUM(amount_jpy - LEAST(refund_jpy, amount_jpy)) FROM core.orders
            WHERE status IN ('paid', 'fulfilled')""",
     ),
     (
@@ -98,6 +120,7 @@ INFO = [
 
 def main():
     engine = get_engine()
+    print("database:", engine.url.database)
     failures = 0
     with engine.connect() as connection:
         for name, sql, expected in CHECKS:

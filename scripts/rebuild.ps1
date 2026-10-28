@@ -19,4 +19,5 @@ Step "Load products" { python src\load_products.py }
 Step "Load synthetic data" { python src\load_synthetic.py }
 Step "Run integrity checks" { python src\check_data.py }
 
+Step "Run automated tests" { python -m pytest -q }
 Write-Host "Done. Metabase: http://localhost:3000"
