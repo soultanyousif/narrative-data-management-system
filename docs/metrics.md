@@ -6,9 +6,10 @@
 - Prices are treated as tax-inclusive. Shipping is excluded from revenue.
 - Dates are stored in UTC and shown in Japan time (JST).
 - Offline sales may have no customer (walk-in buyers). They count in revenue and orders, but not in customer metrics.
+- A full refund sets the order status to refunded. A partial refund keeps the status and is subtracted from revenue.
 
 ## Metrics
-- Revenue: sum of (unit price x quantity) for counted orders, in JPY.
+- R- Revenue: for counted orders (paid and fulfilled), amount_jpy minus refund_jpy, in JPY. amount_jpy is the items total after discounts, tax included, shipping excluded.
 - Orders: number of counted orders.
 - Customers: number of distinct customers with at least one counted order in the period.
 - Average order value (AOV): revenue divided by orders.

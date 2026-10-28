@@ -1,0 +1,43 @@
+shop_url: https://narrative-platform.com
+line_item_type: "Line Item"
+
+customer_columns:
+  shopify_customer_id: "ID"
+  email: "Email"
+  language: "Language"
+  created_at: "Created At"
+  address_country: "Address Country Code"
+  address_is_default: "Address Is Default"
+
+order_columns:
+  shopify_order_id: "ID"
+  order_number: "Name"
+  created_at: "Created At"
+  cancelled_at: "Cancelled At"
+  currency: "Currency"
+  source: "Source"
+  payment_status: "Payment: Status"
+  fulfillment_status: "Order Fulfillment Status"
+  customer_id: "Customer: ID"
+  shipping_country: "Shipping: Country Code"
+  billing_country: "Billing: Country Code"
+  subtotal_original: "Price: Subtotal"
+  subtotal_jpy: "Price: Subtotal (Shop Currency)"
+  tax_jpy: "Tax: Total (Shop Currency)"
+  shipping_jpy: "Price: Total Shipping (Shop Currency)"
+  discount_jpy: "Price: Total Discount (Shop Currency)"
+  refund_jpy: "Price: Total Refund (Shop Currency)"
+  line_type: "Line: Type"
+  product_handle: "Line: Product Handle"
+  quantity: "Line: Quantity"
+  unit_price_jpy: "Line: Price (Shop Currency)"
+
+source_to_channel:
+  web: online
+  pos: offline
+
+payment_status_map:
+  paid: paid
+  partially_refunded: paid
+  refunded: refunded
+  voided: cancelled

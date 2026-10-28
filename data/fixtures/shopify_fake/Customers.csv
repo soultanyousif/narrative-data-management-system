@@ -1,0 +1,8 @@
+ID,Email,Command,First Name,Last Name,Phone,Language,State,Email Marketing: Status,Email Marketing: Level,Email Marketing: Updated At,SMS Marketing: Status,SMS Marketing: Level,SMS Marketing: Updated At,SMS Marketing: Source,WhatsApp Marketing: Status,WhatsApp Marketing: Level,WhatsApp Marketing: Updated At,Created At,Updated At,Note,Verified Email,Tax ID,Tax Exempt,Tags,Tags Command,Total Spent,Total Orders,Send Account Activation Email,Multipass Identifier,Row #,Top Row,Address ID,Address Command,Address First Name,Address Last Name,Address Phone,Address Company,Address Line 1,Address Line 2,Address City,Address Province,Address Province Code,Address Country,Address Country Code,Address Zip,Address Is Default
+7001,fake.alpha@example.com,,,,,ja-JP,,,,,,,,,,,,2026-09-01T09:00:00+09:00,,,,,,,,,,,,,true,,,,,,,,,,,,,JP,,true
+7002,fake.beta@example.com,,,,,ja-JP,,,,,,,,,,,,2026-09-01T09:00:00+09:00,,,,,,,,,,,,,true,,,,,,,,,,,,,US,,true
+7003,fake.gamma@example.com,,,,,ja-JP,,,,,,,,,,,,2026-09-01T09:00:00+09:00,,,,,,,,,,,,,true,,,,,,,,,,,,,,,false
+7003,,,,,,ja-JP,,,,,,,,,,,,2026-09-01T09:00:00+09:00,,,,,,,,,,,,,,,,,,,,,,,,,,FR,,true
+7004,fake.delta@example.com,,,,,ja-JP,,,,,,,,,,,,2026-09-01T09:00:00+09:00,,,,,,,,,,,,,true,,,,,,,,,,,,,,,
+7005,not-an-email,,,,,ja-JP,,,,,,,,,,,,2026-09-01T09:00:00+09:00,,,,,,,,,,,,,true,,,,,,,,,,,,,JP,,true
+7006,fake.epsilon@example.com,,,,,ja-JP,,,,,,,,,,,,2026-09-01T09:00:00+09:00,,,,,,,,,,,,,true,,,,,,,,,,,,,DE,,true
