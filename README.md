@@ -75,6 +75,7 @@ Seen in the sample export:
 - Prices include the 10% consumption tax.
 - One order spans several rows (items, shipping, payment); rows are grouped by order ID.
 - Products have no SKU in the store; they are matched by product handle.
+- There is no central database today; the data lives in Shopify exports.
 
 Still assumptions:
 - Revenue excludes shipping and cancelled orders. A full refund removes the order from
@@ -89,4 +90,7 @@ Still assumptions:
 
 ## Open questions for MONOUN
 1. Do physical-store sales go through Shopify (register), or are they recorded elsewhere?
-2. Products export with inventory quantity (column names only), for real stock levels.
+
+## Needed before real data goes live (not needed for the trial)
+- A Products or inventory export (column names first) for real stock levels.
+  Until then the inventory page runs on synthetic stock.
