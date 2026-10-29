@@ -30,6 +30,7 @@ INSTRUCTIONS = [
     "unit_price_jpy: optional. Leave empty to use the catalog price. Fill it in when you gave a discount.",
     "customer_email: optional. Leave empty for walk-in customers.",
     "",
+    "Example row: R-2026-0001 | 2026-10-25 | NP-0001 | 1 | (leave empty) | (leave empty)",
     "Do not rename the columns or the sheets. Do not change column D (product_name_auto).",
     "Rows that fail the checks are not loaded. They are listed with a reason in the load report.",
 ]
