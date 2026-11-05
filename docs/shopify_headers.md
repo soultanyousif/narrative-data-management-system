@@ -316,3 +316,174 @@
 - Address Country Code
 - Address Zip
 - Address Is Default
+
+## Products export (168 columns)
+
+- ID
+- Handle
+- Command
+- Title
+- Body HTML
+- Vendor
+- Type
+- Tags
+- Tags Command
+- Created At
+- Updated At
+- Status
+- Template Suffix
+- Gift Card
+- URL
+- Total Inventory Qty
+- Row #
+- Top Row
+- Published: Buy Button
+- Published At: Buy Button
+- Published: Facebook & Instagram
+- Published At: Facebook & Instagram
+- Published: Google & YouTube
+- Published At: Google & YouTube
+- Published: Online Store
+- Published At: Online Store
+- Published: Pinterest
+- Published At: Pinterest
+- Published: Point of Sale
+- Published At: Point of Sale
+- Published: Shop
+- Published At: Shop
+- Published: TikTok
+- Published At: TikTok
+- Category: ID
+- Category: Name
+- Category
+- Collections
+- Custom Collections
+- Smart Collections
+- Image Type
+- Image Src
+- Image Command
+- Image Position
+- Image Width
+- Image Height
+- Image Alt Text
+- Variant Inventory Item ID
+- Variant ID
+- Variant Command
+- Option1 Name
+- Option1 Value
+- Option2 Name
+- Option2 Value
+- Option3 Name
+- Option3 Value
+- Variant Position
+- Variant SKU
+- Variant Barcodes
+- Variant Barcodes Command
+- Variant Image
+- Variant Price
+- Variant Compare At Price
+- Variant Taxable
+- Variant Inventory Tracker
+- Variant Inventory Policy
+- Variant Fulfillment Service
+- Variant Inventory Qty
+- Variant Inventory Adjust
+- Variant Requires Shipping
+- Variant Shipping Profile
+- Variant Packed Length
+- Variant Packed Width
+- Variant Packed Height
+- Variant Packed Dimension Unit
+- Variant Weight
+- Variant Weight Unit
+- Inventory Available: Mochizuki Byobu-ten
+- Inventory Available Adjust: Mochizuki Byobu-ten
+- Inventory On Hand: Mochizuki Byobu-ten
+- Inventory On Hand Adjust: Mochizuki Byobu-ten
+- Inventory Committed: Mochizuki Byobu-ten
+- Inventory Reserved: Mochizuki Byobu-ten
+- Inventory Damaged: Mochizuki Byobu-ten
+- Inventory Damaged Adjust: Mochizuki Byobu-ten
+- Inventory Safety Stock: Mochizuki Byobu-ten
+- Inventory Safety Stock Adjust: Mochizuki Byobu-ten
+- Inventory Quality Control: Mochizuki Byobu-ten
+- Inventory Quality Control Adjust: Mochizuki Byobu-ten
+- Inventory Incoming: Mochizuki Byobu-ten
+- Inventory Available: りょうび庵
+- Inventory Available Adjust: りょうび庵
+- Inventory On Hand: りょうび庵
+- Inventory On Hand Adjust: りょうび庵
+- Inventory Committed: りょうび庵
+- Inventory Reserved: りょうび庵
+- Inventory Damaged: りょうび庵
+- Inventory Damaged Adjust: りょうび庵
+- Inventory Safety Stock: りょうび庵
+- Inventory Safety Stock Adjust: りょうび庵
+- Inventory Quality Control: りょうび庵
+- Inventory Quality Control Adjust: りょうび庵
+- Inventory Incoming: りょうび庵
+- Inventory Available: 中島忠平漆器店
+- Inventory Available Adjust: 中島忠平漆器店
+- Inventory On Hand: 中島忠平漆器店
+- Inventory On Hand Adjust: 中島忠平漆器店
+- Inventory Committed: 中島忠平漆器店
+- Inventory Reserved: 中島忠平漆器店
+- Inventory Damaged: 中島忠平漆器店
+- Inventory Damaged Adjust: 中島忠平漆器店
+- Inventory Safety Stock: 中島忠平漆器店
+- Inventory Safety Stock Adjust: 中島忠平漆器店
+- Inventory Quality Control: 中島忠平漆器店
+- Inventory Quality Control Adjust: 中島忠平漆器店
+- Inventory Incoming: 中島忠平漆器店
+- Inventory Available: 仁秀
+- Inventory Available Adjust: 仁秀
+- Inventory On Hand: 仁秀
+- Inventory On Hand Adjust: 仁秀
+- Inventory Committed: 仁秀
+- Inventory Reserved: 仁秀
+- Inventory Damaged: 仁秀
+- Inventory Damaged Adjust: 仁秀
+- Inventory Safety Stock: 仁秀
+- Inventory Safety Stock Adjust: 仁秀
+- Inventory Quality Control: 仁秀
+- Inventory Quality Control Adjust: 仁秀
+- Inventory Incoming: 仁秀
+- Inventory Available: 南青山7-13-2
+- Inventory Available Adjust: 南青山7-13-2
+- Inventory On Hand: 南青山7-13-2
+- Inventory On Hand Adjust: 南青山7-13-2
+- Inventory Committed: 南青山7-13-2
+- Inventory Reserved: 南青山7-13-2
+- Inventory Damaged: 南青山7-13-2
+- Inventory Damaged Adjust: 南青山7-13-2
+- Inventory Safety Stock: 南青山7-13-2
+- Inventory Safety Stock Adjust: 南青山7-13-2
+- Inventory Quality Control: 南青山7-13-2
+- Inventory Quality Control Adjust: 南青山7-13-2
+- Inventory Incoming: 南青山7-13-2
+- Inventory Available: 株式会社F-STYLE
+- Inventory Available Adjust: 株式会社F-STYLE
+- Inventory On Hand: 株式会社F-STYLE
+- Inventory On Hand Adjust: 株式会社F-STYLE
+- Inventory Committed: 株式会社F-STYLE
+- Inventory Reserved: 株式会社F-STYLE
+- Inventory Damaged: 株式会社F-STYLE
+- Inventory Damaged Adjust: 株式会社F-STYLE
+- Inventory Safety Stock: 株式会社F-STYLE
+- Inventory Safety Stock Adjust: 株式会社F-STYLE
+- Inventory Quality Control: 株式会社F-STYLE
+- Inventory Quality Control Adjust: 株式会社F-STYLE
+- Inventory Incoming: 株式会社F-STYLE
+- Inventory Available: 琉球ガラス匠工房
+- Inventory Available Adjust: 琉球ガラス匠工房
+- Inventory On Hand: 琉球ガラス匠工房
+- Inventory On Hand Adjust: 琉球ガラス匠工房
+- Inventory Committed: 琉球ガラス匠工房
+- Inventory Reserved: 琉球ガラス匠工房
+- Inventory Damaged: 琉球ガラス匠工房
+- Inventory Damaged Adjust: 琉球ガラス匠工房
+- Inventory Safety Stock: 琉球ガラス匠工房
+- Inventory Safety Stock Adjust: 琉球ガラス匠工房
+- Inventory Quality Control: 琉球ガラス匠工房
+- Inventory Quality Control Adjust: 琉球ガラス匠工房
+- Inventory Incoming: 琉球ガラス匠工房

@@ -76,6 +76,7 @@ Seen in the sample export:
 - One order spans several rows (items, shipping, payment); rows are grouped by order ID.
 - Products have no SKU in the store; they are matched by product handle.
 - There is no central database today; the data lives in Shopify exports.
+- No POS system at the physical stores (BoRu, 30 October); offline sales come in through the Excel template.
 
 Still assumptions:
 - Revenue excludes shipping and cancelled orders. A full refund removes the order from
@@ -89,8 +90,8 @@ Still assumptions:
 - All synthetic volumes and rates are assumptions, not MONOUN figures.
 
 ## Open questions for MONOUN
-1. Do physical-store sales go through Shopify (register), or are they recorded elsewhere?
+No open questions at the moment.
 
-## Needed before real data goes live (not needed for the trial)
-- A Products or inventory export (column names first) for real stock levels.
-  Until then the inventory page runs on synthetic stock.
+## Planned improvements
+- Week 4: save the Shopify product ID and match order lines on it first, with the handle as backup.
+- Stock: products have no SKU in production and stock sits at one default location, so the dashboard uses total stock per product. A real quantity export is needed before go-live.
