@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./docker/init:/docker-entrypoint-initdb.d
@@ -19,7 +19,7 @@ services:
   metabase:
     image: metabase/metabase:v0.64.1
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     environment:
       MB_DB_TYPE: postgres
       MB_DB_DBNAME: metabase

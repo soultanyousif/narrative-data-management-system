@@ -1,0 +1,26 @@
+services:
+  db:
+    restart: unless-stopped
+  metabase:
+    restart: unless-stopped
+    environment:
+      MB_SITE_URL: ${METABASE_URL}
+      JAVA_OPTS: "-Xmx1g"
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - metabase
+
+volumes:
+  caddy_data:
+  caddy_config:
